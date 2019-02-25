@@ -1,0 +1,14 @@
+
+.card-img-top{
+  width: 18rem;
+}
+.jumbotron{
+  text-align: center;
+  background: orange;
+}
+.list-group{
+  text-align: left;  
+}
+.list-group-item{
+  background-color: cornsilk;
+}

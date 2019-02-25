@@ -1,0 +1,50 @@
+<div class="container">
+  <!-- Content here -->
+
+  <div class="jumbotron">
+    <h1>Eat-Da-Burger!</h1>
+    <hr class="my-4">
+    <div class="row">
+    
+        <div class="col-sm">
+          <ul class="list-group">
+            {{#each burgers}}
+            {{#unless devoured}}
+            <li class="list-group-item  d-flex justify-content-between align-items-center"> {{ burger_name}}
+              <button  data-id="{{this.id}}" id="devour_It" type="button" class="badge badge-dark badge-pill">Devour It</button>
+            </li>
+            {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+      
+      <div class="col-sm">
+        <img src="/assets/images/favicon.png" class="card-img-top" alt="...">
+      </div>
+      <div class="col-sm">
+        <ul class="list-group">
+          {{#each burgers}}
+          {{#if devoured}}
+          <li class="list-group-item">{{ burger_name}}
+          
+          </li>
+          {{/if}}
+          {{/each}}
+        </ul>
+
+      </div>
+    </div>
+
+    <form class="create-form">
+
+      <div class="form-group">
+        <textarea id="burger_name" name="name" rows="2" cols="30"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-dark">Submit</button><Br>
+
+      <label>Enter a burger you want to eat and click "Submit" button</label>
+
+    </form>
+  </div>
+</div>
