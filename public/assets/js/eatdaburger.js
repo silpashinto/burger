@@ -30,16 +30,15 @@ $(function () {
     
   });
 
-  // $(".update-form").on("submit", function(event) {
-  $("#devour_It").on("click", function (event) {
+  $("#todevour li button").on("click", function (event) {  
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
-
+   
     var updatedBurgers = {
       devoured: 1
     };
 
-    var id = $(this).data("id");
+    var id = $(this).data("id"); 
     // Send the POST request.
     $.ajax("/api/burgers/" + id, {
       type: "PUT",
@@ -49,6 +48,22 @@ $(function () {
         console.log("updated burger");
         // Reload the page to get the updated list
         location.assign("/");
+      }
+    );
+  });
+
+  $("#devoured li button").on("click", function() {
+   
+    var id = $(this).data("id");   
+
+    // Send the DELETE request.
+    $.ajax("/api/burgers/" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted id ", id);
+        // Reload the page to get the updated list
+        location.reload();
       }
     );
   });
